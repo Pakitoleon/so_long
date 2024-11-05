@@ -1,44 +1,59 @@
-NAME = 
+
+NAME = so_long
 User = $(shell whoami)
 
-cc = $(shell wich clang gcc cc | head -n 1)
-CFLAGS = -Wall -Wextra -Werror  \ -g -fsanitize=address,undefined \
+CC = $(shell which clang gcc cc | head -n 1)
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
-MLX_DIR = ./MLX42/build
-MLX = $(MLX_DIR)/libmlx_(UNAME).a
-LINK =  -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
+MLX_DIR = ./MLX42/
+LIBFT_DIR = ./Libft/
+SRC_DIR = ./utils/
+INCLUDE_DIR = ./include/
 
-LIBFT_DIR = 
-SRC_DIR =
+MLX = $(MLX_DIR)build/libmlx42.a
 
-HEADERS = -I/usr/include -Imlx
+LINK = -ldl -lglfw -pthread -lm
 
-SRC =
+LIBFT = $(LIBFT_DIR)/libft.a
+
+SRC =	$(SRC_DIR)player.c \
+		$(SRC_DIR)map.c \
+		$(SRC_DIR)duplicate_map.c \
+		$(SRC_DIR)flood_fill.c \
+		$(SRC_DIR)ft_error.c \
+		$(SRC_DIR)init_mlx.c \
+		$(SRC_DIR)move.c \
+		main.c \
 
 OBJS = $(SRC:.c=.o)
 
-all: mlx42 $(NAME)
+HEADERS = -I/usr/include -Imlx -I$(INCLUDE_DIR) -I$(LIBFT_DIR)
 
-mlx42:
+all: $(LIBFT) $(MLX) $(NAME)
+
+$(MLX):
 	@make -C $(MLX_DIR)
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
+$(LIBFT):
+	@make -C $(LIBFT_DIR)
+
+$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
+	@$(CC) $(CFLAGS) -c $< -o $@ $(HEADERS)
+
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LINK) $(HEADERS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(LINK)
 	@echo "COMPILING SO_LONG"
 
-clean: @rm -rf(OBJS)
-	@rm -rf $(_DIR)/*.o
-	@echo "CLEANING SO_LONG"
+clean:
+	@rm -f $(OBJS)
+	@make -C $(MLX_DIR) clean
+	@make -C $(LIBFT_DIR) clean
+	@echo "CLEANING OBJECT FILES"
 
 fclean: clean
-	@rm -rf $(NAME)
-	@rm -rf $(MLX_DIR)/libmlx42.a
-	@echo "REMOVING SO_LONG"
+	@rm -f $(NAME)
+	@echo "REMOVING EXECUTABLE"
 
 re: fclean all
-	@echo "REMAKING SO_LONG"
 
 .PHONY: all clean fclean re
-	@echo "PHONY SO_LONG"

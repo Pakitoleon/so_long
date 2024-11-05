@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20241102-0855-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.22.1"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="c3r5s1.42malaga.com"
+	OSRelease="6.10.9-1-t2-jammy"
+	OSVersion="#1 SMP PREEMPT_DYNAMIC Sun Sep  8 09:34:45 UTC 2024"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="165"
+	ProcessorCacheSize="12288"
+	NumberOfLogicalCPU="12"
+	NumberOfPhysicalCPU="6"
+	TotalVirtualMemory="4095"
+	TotalPhysicalMemory="7791"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="4400.02"
+	>
+	<Testing>
+		<StartDateTime>Nov 02 09:56 CET</StartDateTime>
+		<StartTestTime>1730537766</StartTestTime>
+		<TestList/>
+		<EndDateTime>Nov 02 09:56 CET</EndDateTime>
+		<EndTestTime>1730537766</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

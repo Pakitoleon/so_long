@@ -6,7 +6,7 @@
 /*   By: fgonzal2 <fgonzal2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 17:09:53 by fgonzal2          #+#    #+#             */
-/*   Updated: 2024/11/05 14:50:21 by fgonzal2         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:13:28 by fgonzal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	init_so_long(t_solong *so_long)
 	so_long->height = 0;
 	so_long->map = NULL;
 	so_long->player = 0;
-	so_long->coin = 0;
+	so_long->coin = 2;
 	so_long->total_coins = 2;
 	so_long->exit = 0;
 	so_long->count = 0;

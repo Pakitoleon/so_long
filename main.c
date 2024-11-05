@@ -6,7 +6,7 @@
 /*   By: fgonzal2 <fgonzal2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 10:22:10 by fgonzal2          #+#    #+#             */
-/*   Updated: 2024/11/05 15:22:46 by fgonzal2         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:09:22 by fgonzal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int32_t main(int argc, char **argv)
 {
 	t_solong	so_long;
 	mlx_t		*init;
-	//int			i;
+	int			i;
 
 	if (argc != 2)
 	{
@@ -106,8 +106,8 @@ int32_t main(int argc, char **argv)
 	}
 	init_so_long(&so_long);
 	ft_check_so_long(&so_long, argv[1]);
-	load_map(&so_long, argv[1]);
-	//map_elements(&so_long);
+	//load_map(&so_long, argv[1]);
+	map_elements(&so_long);
 	duplicated_map(&so_long);
 	flood_fill(&so_long, so_long.x, so_long.y);
 		printf("flood fill");
@@ -126,8 +126,6 @@ int32_t main(int argc, char **argv)
 		return(EXIT_FAILURE);
 	}
 	printf("El so_long inicia bien\n");
-	mlx_loop(init);
-	/*
 	ft_mlx_init(&so_long);
  	mlx_key_hook(so_long.init, ft_moves, &so_long);
 	mlx_loop_hook(so_long.init, ft_hook, &so_long);
@@ -144,7 +142,7 @@ int32_t main(int argc, char **argv)
 		mlx_delete_texture(so_long.txt_wall);
 	if (so_long.txt_floor)
 		mlx_delete_texture(so_long.txt_floor);
-
+	
 	i = 0;
 	while (i < so_long.height)
 	{
@@ -155,6 +153,6 @@ int32_t main(int argc, char **argv)
 	free(so_long.map);
 	free(so_long.dup);
 
-	clean_(&so_long);*/
+	clean_(&so_long);
 	return (EXIT_SUCCESS);
 }

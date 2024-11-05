@@ -6,7 +6,7 @@
 /*   By: fgonzal2 <fgonzal2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 17:42:12 by fgonzal2          #+#    #+#             */
-/*   Updated: 2024/10/29 13:33:23 by fgonzal2         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:12:49 by fgonzal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	ft_mlx_init(t_solong *so_long)
 {
 	mlx_set_setting (MLX_STRETCH_IMAGE, true);
-	so_long->init = mlx_init(so_long->width * 32,
-			so_long->height * 32, "so_long", true);
+	so_long->init = mlx_init(so_long->width * 1024,
+			so_long->height * 1024, "so_long", true);
 	if (!so_long->init)
 		ft_error("Error: Failed to initialize MLX");
 	load_textures(so_long);
@@ -75,8 +75,8 @@ void	put_textures(t_solong *so_long)
 	int offset_x;
 	int offset_y;
 
-	offset_x = (so_long->window_width - (so_long->width * 32)) / 2;
-	offset_y = (so_long->window_height - (so_long->height * 32)) / 2;
+	offset_x = (so_long->window_width - (so_long->width * 1024)) / 2;
+	offset_y = (so_long->window_height - (so_long->height * 1024)) / 2;
 
 	y = 0;
 	put_floor(so_long);

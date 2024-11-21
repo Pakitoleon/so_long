@@ -6,7 +6,7 @@
 /*   By: fgonzal2 <fgonzal2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:56:42 by pablogon          #+#    #+#             */
-/*   Updated: 2024/10/28 15:26:19 by fgonzal2         ###   ########.fr       */
+/*   Updated: 2024/11/18 11:05:44 by fgonzal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,15 @@ size_t	ft_strlen_gnl(char *s);
 char	*ft_strchr_gnl(char *s, int c);
 char	*ft_strjoin_gnl(char *s1, char *s2);
 char	*ft_strncpy_gnl(char *dest, const char *src, size_t n);
+
+/* GNL */
+
+char			*get_next_line(int fd);
+char			*ft_strchr(char *s, int c);
+char			*ft_strjoin(char *s1, char *s2);
+char			*static_maker(char *static_str, int fd);
+char			*make_line(char *static_str, int i);
+char			*new_static_maker(char *static_str);
+char			*get_next_line(int fd);
+size_t			ft_strlen_(const char *str);
 #endif

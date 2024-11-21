@@ -4,8 +4,9 @@ RM = rm -f
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-NAME = libft.a $(BONUS)
+NAME = libft.a $(BONUS) $(GNL_)
 BONUS = get_nex_line_bonus.a
+GNL_ = Get_next_line.a
 
 SRCS =  ft_bzero.c ft_isalpha.c ft_isdigit.c ft_memcpy.c ft_memchr.c \
 ft_memmove.c ft_memset.c ft_memcmp.c ft_strlen.c ft_strlcpy.c \
@@ -20,15 +21,18 @@ ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c \
 
 GNL = get_next_line_bonus.c get_next_line_utils_bonus.c \
 
+GNL_B = get_next_line.c get_next_line_utils.c \
+
 OFILES = $(SRCS:.c=.o)
 BOFILES = $(BSRCS:.c=.o)
 GNLFILES = $(GNL:.c=.o)
+GNL_B_FILES = $(GNL_B:.c=.o)
 INCLUDE = libft.h
 
 all: $(NAME) $(BONUS)
 
-$(NAME):$(OFILES) $ (BOFILES) $(INCLUDE) $(GNLFILES)
-	@$(LIB) $(NAME) $(OFILES) $(BOFILES) $(GNLFILES)
+$(NAME):$(OFILES) $ $(BOFILES) $(INCLUDE) $(GNLFILES) $(GNL_B_FILES)
+	@$(LIB) $(NAME) $(OFILES) $(BOFILES) $(GNLFILES) $(GNL_B_FILES)
 	@echo "Compiling Libft + Get_next_line..."
 
 bonus: $(NAME) $(BOFILES) $(INCLUDE)
@@ -37,10 +41,10 @@ bonus: $(NAME) $(BOFILES) $(INCLUDE)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OFILES) $(GNLFILES) $(BOFILES)
+	$(RM) $(OFILES) $(GNLFILES) $(GNL_B_FILES) $(BOFILES)
 
 fclean: clean
-	$(RM) $(NAME) $(BONUS) $(BOFILES)
+	$(RM) $(NAME) $(BONUS) $(GNL_B_FILES) $(BOFILES)
 
 re: fclean all
 .PHONY: all clean fclean re ar bonus

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fgonzal2 <fgonzal2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 14:13:29 by pablogon          #+#    #+#             */
-/*   Updated: 2024/09/02 18:04:51 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:52:14 by fgonzal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 void	ft_error(char *msg)
 {
-	write (2, msg, ft_strlen(msg));
-	write (2, "\n", 1);
+	if (msg)
+	{
+		write (2, msg, ft_strlen(msg));
+		write (2, "\n", 1);
+	}
 	exit (EXIT_FAILURE);
 }

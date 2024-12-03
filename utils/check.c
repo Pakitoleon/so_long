@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fgonzal2 <fgonzal2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:34:43 by pablogon          #+#    #+#             */
-/*   Updated: 2024/09/02 14:14:50 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/11/25 15:17:29 by fgonzal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ int	ft_check_map_size(t_so_long *game, char *str)
 		free(line);
 		line = get_next_line(fd);
 		if (line && len != ft_strlen_so_long(line))
-			return (free(line), 0);
+			return (free(line), close(fd), 0);
 	}
+	close(fd);
 	return (1);
 }
 

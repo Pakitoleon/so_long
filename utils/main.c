@@ -6,7 +6,7 @@
 /*   By: fgonzal2 <fgonzal2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 14:39:18 by pablogon          #+#    #+#             */
-/*   Updated: 2024/11/21 15:00:37 by fgonzal2         ###   ########.fr       */
+/*   Updated: 2024/11/25 15:13:00 by fgonzal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,10 @@ int	main(int argc, char **argv)
 {
 	t_so_long	game;
 
-	if (argc == 2)
-	{
-		ft_check_game(&game, argv[1]);
-		ft_mlx_init(&game);
-		ft_cleanup(&game);
-	}
-	else
+	if (argc != 2)
 		ft_error("ERROR: Invalid number of arguments");
+	ft_check_game(&game, argv[1]);
+	ft_mlx_init(&game);
+	ft_cleanup(&game);
 	return (0);
 }
-
